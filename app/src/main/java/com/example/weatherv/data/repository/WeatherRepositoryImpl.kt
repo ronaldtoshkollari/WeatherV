@@ -8,12 +8,10 @@ import com.example.weatherv.domain.model.City
 import com.example.weatherv.domain.model.HourlyWeather
 import com.example.weatherv.domain.model.Weather
 import com.example.weatherv.domain.model.WeatherInfo
-import com.example.weatherv.domain.repository.CityRepository
 import com.example.weatherv.domain.repository.WeatherRepository
 import javax.inject.Inject
 
 class WeatherRepositoryImpl @Inject constructor(
-    private val cityRepository: CityRepository,
     private val weatherApi: WeatherApi
 ) : WeatherRepository {
 

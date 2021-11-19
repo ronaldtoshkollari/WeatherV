@@ -12,7 +12,7 @@ import com.example.weatherv.utils.DateConverter
 
 object WeatherMapper {
 
-    fun dailyWeatherToWeatherModel(dailyWeatherInfoDto: DailyWeatherInfoDto): Weather {
+    private fun dailyWeatherToWeatherModel(dailyWeatherInfoDto: DailyWeatherInfoDto): Weather {
         try {
 
             val date = DateConverter.toDate(dailyWeatherInfoDto.dateTimeStamp) ?: ""
@@ -38,7 +38,7 @@ object WeatherMapper {
         }
     }
 
-    fun hourlyWeatherToHourlyWeatherModel(hourlyWeatherInfoDto: HourlyWeatherInfoDto): HourlyWeather {
+    private fun hourlyWeatherToHourlyWeatherModel(hourlyWeatherInfoDto: HourlyWeatherInfoDto): HourlyWeather {
 
         try {
             val hour = DateConverter.toHour(hourlyWeatherInfoDto.dateTimeStamp) ?: ""
@@ -60,7 +60,7 @@ object WeatherMapper {
 
     }
 
-    fun currentWeatherToWeatherModel(currentWeatherInfoDto: CurrentWeatherInfoDto): Weather {
+    private fun currentWeatherToWeatherModel(currentWeatherInfoDto: CurrentWeatherInfoDto): Weather {
         try {
 
             val date = DateConverter.toDate(currentWeatherInfoDto.dateTimeStamp) ?: ""
