@@ -20,6 +20,6 @@ interface WeatherApi {
 
     @GET("weather")
     suspend fun getCityCoordinates(
-        @Query("q") cityName: String
+        @Query("q") cityName: String = Constants.DEFAULT_CITY
     ): CityCoordinatesDto
 }

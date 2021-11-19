@@ -10,5 +10,6 @@ object Constants {
     const val EXCLUDE = "minutely,alerts"
     const val APPID = "90687986c68eef875c5b38cf6f0fe8da"
     const val UNITS = "metric"
+    const val DEFAULT_CITY = "Athens"
 
 }
