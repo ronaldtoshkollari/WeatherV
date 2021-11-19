@@ -8,7 +8,7 @@ object Constants {
     const val LAT = 37.9838
     const val LON = 23.7275
     const val EXCLUDE = "minutely,alerts"
-    const val APPID = "90687986c68eef875c5b38cf6f0fe8da"
+    const val APPID = "ac026be53e4873ccbfe6a06554c67b70"
     const val UNITS = "metric"
     const val DEFAULT_CITY = "Athens"
 

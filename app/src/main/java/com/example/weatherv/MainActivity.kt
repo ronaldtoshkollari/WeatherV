@@ -8,6 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.weatherv.presentation.navigation.NavigationComponent
 import com.example.weatherv.presentation.ui.theme.WeatherVTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,23 +20,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeatherVTheme {
                 // A surface container using the 'background' color from the theme
+                val navigation = rememberNavController()
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+
+                    NavigationComponent(navController = navigation)
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    WeatherVTheme {
-        Greeting("Android")
     }
 }
