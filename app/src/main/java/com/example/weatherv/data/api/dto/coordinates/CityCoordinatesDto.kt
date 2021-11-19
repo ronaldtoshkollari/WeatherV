@@ -4,5 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class CityCoordinatesDto(
     @SerializedName("coord")
-    val coordinates: CoordDto
+    val coordinates: CoordDto,
+    val name: String
 )
