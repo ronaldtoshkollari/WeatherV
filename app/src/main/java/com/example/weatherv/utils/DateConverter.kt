@@ -19,7 +19,7 @@ object DateConverter {
 
     fun toHour(s: String): String? {
         return try {
-            val sdf = SimpleDateFormat("hh a", Locale.ENGLISH)
+            val sdf = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
             val netDate = Date(s.toLong() * 1000)
             sdf.format(netDate)
         } catch (e: Exception) {

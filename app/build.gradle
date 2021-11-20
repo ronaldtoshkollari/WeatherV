@@ -97,7 +97,10 @@ dependencies {
     implementation "com.airbnb.android:lottie-compose:4.2.1"
 
     //Navigation
-    implementation "androidx.navigation:navigation-compose:2.4.0-beta02" 
+    implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
+
+    //Icons
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
 
 
 }

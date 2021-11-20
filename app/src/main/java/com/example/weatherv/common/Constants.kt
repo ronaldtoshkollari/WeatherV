@@ -12,4 +12,7 @@ object Constants {
     const val UNITS = "metric"
     const val DEFAULT_CITY = "Athens"
 
+    //Icons
+    const val ICON_URL = "https://openweathermap.org/img/wn/"
+
 }

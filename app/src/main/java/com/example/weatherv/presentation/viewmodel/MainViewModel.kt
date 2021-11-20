@@ -36,18 +36,15 @@ class MainViewModel @Inject constructor(
             when(result) {
 
                 is Resource.Loading -> {
-                    _state.value = MainState(message = "Loading...")
-                    Log.d("ViewModel", "viewmodel: ${_state.value}")
+                    _state.value = MainState(message = "Loading...", isLoading = true)
                 }
 
                 is Resource.Error -> {
-                    _state.value = MainState(message = "An error occurred.")
-                    Log.d("ViewModel", "viewmodel: ${_state.value}")
+                    _state.value = MainState(message = "An error occurred.", errorOccurred = true)
                 }
 
                 is Resource.Success -> {
                     _state.value = MainState(weatherInfo = result.data)
-                    Log.d("ViewModel", "viewmodel: ${_state.value}")
                 }
 
             }
