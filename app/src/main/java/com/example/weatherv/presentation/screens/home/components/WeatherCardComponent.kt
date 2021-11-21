@@ -41,8 +41,8 @@ fun WeatherCardComponent(
         modifier = Modifier
             .clip(RoundedCornerShape(80.dp))
             .background(brush = brush)
-            .width(250.dp)
-            .height(260.dp),
+            .fillMaxWidth(0.7f)
+            .height(300.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 

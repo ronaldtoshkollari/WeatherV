@@ -20,10 +20,11 @@ object WeatherMapper {
             return Weather(
                 date = date,
                 description = dailyWeatherInfoDto.weatherDetailsDto.first().description,
-                degree = dailyWeatherInfoDto.temp.day.toString(),
+                degree = dailyWeatherInfoDto.temp.day.toInt().toString(),
                 iconName = dailyWeatherInfoDto.weatherDetailsDto.first().icon,
-                windSpeed = dailyWeatherInfoDto.wind_speed.toString(),
-                humidity = dailyWeatherInfoDto.humidity.toString()
+                windSpeed = dailyWeatherInfoDto.wind_speed.toInt().toString(),
+                humidity = dailyWeatherInfoDto.humidity.toString(),
+                clouds = dailyWeatherInfoDto.clouds.toString()
             )
 
         } catch (e: Exception) {
@@ -33,7 +34,8 @@ object WeatherMapper {
                 description = "",
                 iconName = "",
                 windSpeed = "",
-                humidity = ""
+                humidity = "",
+                clouds = ""
             )
         }
     }
@@ -45,7 +47,7 @@ object WeatherMapper {
 
             return HourlyWeather(
                 hour = hour,
-                degree = hourlyWeatherInfoDto.temp.toString(),
+                degree = hourlyWeatherInfoDto.temp.toInt().toString(),
                 iconName = hourlyWeatherInfoDto.weatherDetailsDto.first().icon
             )
         } catch (e: Exception) {
@@ -68,10 +70,11 @@ object WeatherMapper {
             return Weather(
                 date = date,
                 description = currentWeatherInfoDto.weatherDetailDtos.first().description,
-                degree = currentWeatherInfoDto.temp.toString(),
+                degree = currentWeatherInfoDto.temp.toInt().toString(),
                 iconName = currentWeatherInfoDto.weatherDetailDtos.first().icon,
-                windSpeed = currentWeatherInfoDto.wind_speed.toString(),
-                humidity = currentWeatherInfoDto.humidity.toString()
+                windSpeed = currentWeatherInfoDto.wind_speed.toInt().toString(),
+                humidity = currentWeatherInfoDto.humidity.toString(),
+                clouds = currentWeatherInfoDto.clouds.toString()
             )
 
         } catch (e: Exception) {
@@ -81,7 +84,8 @@ object WeatherMapper {
                 description = "",
                 iconName = "",
                 windSpeed = "",
-                humidity = ""
+                humidity = "",
+                clouds = ""
             )
         }
     }

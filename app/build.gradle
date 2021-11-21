@@ -102,5 +102,11 @@ dependencies {
     //Icons
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
 
+    //System UI Controller
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.21.2-beta"
+
+    //Swipe Refresh Layout
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.21.3-beta"
+
 
 }

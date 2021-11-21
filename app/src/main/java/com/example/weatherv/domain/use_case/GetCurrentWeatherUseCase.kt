@@ -20,7 +20,11 @@ class GetCurrentWeatherUseCase @Inject constructor(
         try {
 
             val weather = weatherRepository.getWeatherInfo()
+
+            if(weather.currentWeather.date.isEmpty()) throw IllegalArgumentException("Network error.")
+
             emit(Resource.Success<WeatherInfo>(weather))
+
 
         } catch (e: Exception) {
             Log.d("GetCurrentWeatherUseCase", "invoke: ${e.message}")

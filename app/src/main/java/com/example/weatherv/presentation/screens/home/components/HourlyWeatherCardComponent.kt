@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,22 +30,22 @@ fun HourlyWeatherCardComponent(
     val iconUrl = "${Constants.ICON_URL}$iconName.png"
 
     Card(
-        elevation = 8.dp, modifier = Modifier
-            .background(color = Color.White)
+        elevation = 5.dp,
+        modifier = Modifier
             .clip(RoundedCornerShape(32.dp))
             .width(130.dp)
-            .height(125.dp)
-
+            .height(155.dp)
+            .padding(15.dp),
+        backgroundColor = MaterialTheme.colors.background
     ) {
 
         Column(
             modifier = Modifier
-                .background(color = Color.White)
-                .padding(10.dp)
                 .clip(RoundedCornerShape(32.dp))
-                .fillMaxSize()
-                ,
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(color = MaterialTheme.colors.background, shape = RoundedCornerShape(32.dp))
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
 
             Text(
@@ -54,11 +55,13 @@ fun HourlyWeatherCardComponent(
                 fontWeight = FontWeight.Light
             )
 
-            Spacer(modifier = Modifier.height(3.dp))
 
-            Image(painter = rememberImagePainter(iconUrl), contentDescription = "Weather Icon", modifier = Modifier.size(40.dp))
+            Image(
+                painter = rememberImagePainter(iconUrl),
+                contentDescription = "Weather Icon",
+                modifier = Modifier.size(40.dp)
+            )
 
-            Spacer(modifier = Modifier.height(3.dp))
 
             Text(
                 text = time,

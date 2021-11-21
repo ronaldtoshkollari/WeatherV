@@ -1,4 +1,4 @@
-package com.example.weatherv.presentation.screens.home.components
+package com.example.weatherv.presentation.screens.common_components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -27,7 +27,7 @@ fun WeatherDetailCardComponent(
 
     Card(
         elevation = 5.dp, modifier = Modifier
-            .width(400.dp)
+            .fillMaxWidth(0.95f)
             .height(110.dp)
             .background(color = MaterialTheme.colors.surface)
     ) {

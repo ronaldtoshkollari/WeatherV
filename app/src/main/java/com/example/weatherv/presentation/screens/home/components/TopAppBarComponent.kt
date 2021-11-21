@@ -34,7 +34,7 @@ fun TopAppBarComponent(
         modifier = Modifier
             .clip(RoundedCornerShape(bottomStart = 5.dp, bottomEnd = 5.dp))
             .fillMaxWidth()
-            .height(95.dp)
+            .height(65.dp)
             .background(color = MaterialTheme.colors.surface)
     ) {
 

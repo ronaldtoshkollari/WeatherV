@@ -26,7 +26,7 @@ class WeatherRepositoryImpl @Inject constructor(
             Log.d("WeatherRepositoryImpl", "getWeatherInfo: ${e.message}")
 
             val city = City(lon = Constants.LON, lat = Constants.LAT, name = Constants.DEFAULT_CITY)
-            val currentWeather = Weather("", "", "", "", "", "")
+            val currentWeather = Weather("", "", "", "", "", "", "")
             val hourlyWeather = HourlyWeather("", "", "")
 
             WeatherInfo(city, currentWeather, listOf(currentWeather), listOf(hourlyWeather))
@@ -50,7 +50,7 @@ class WeatherRepositoryImpl @Inject constructor(
 
             val cityDefaultItem =
                 City(lon = Constants.LON, lat = Constants.LAT, name = Constants.DEFAULT_CITY)
-            val currentWeather = Weather("", "", "", "", "", "")
+            val currentWeather = Weather("", "", "", "", "", "", "")
             val hourlyWeather = HourlyWeather("", "", "")
 
             WeatherInfo(

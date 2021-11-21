@@ -5,12 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
 import com.example.weatherv.presentation.navigation.NavigationComponent
 import com.example.weatherv.presentation.ui.theme.WeatherVTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +21,15 @@ class MainActivity : ComponentActivity() {
             WeatherVTheme {
                 // A surface container using the 'background' color from the theme
                 val navigation = rememberNavController()
+                val systemUiController = rememberSystemUiController()
+
+                SideEffect {
+                    systemUiController.setStatusBarColor(
+                        color = Color(0xFF133C55)
+                    )
+                }
+
+
                 Surface(color = MaterialTheme.colors.background) {
 
                     NavigationComponent(navController = navigation)
