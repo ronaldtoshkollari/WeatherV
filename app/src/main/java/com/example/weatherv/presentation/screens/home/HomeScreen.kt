@@ -63,7 +63,8 @@ fun HomeScreen(
         } else if (!viewModel.state.value.isLoading && !viewModel.state.value.errorOccurred) {
             SwipeRefresh(
                 state = swipeRefreshState,
-                onRefresh = { viewModel.refresh() }
+                onRefresh = { viewModel.refresh() },
+                refreshTriggerDistance = 200.dp
             ) {
                 Column(
                     modifier = Modifier
@@ -106,16 +107,21 @@ fun HomeScreen(
                             text = "Next 7 Days >",
                             fontWeight = FontWeight.Thin,
                             fontSize = 18.sp,
-                            modifier = Modifier.align(
-                                Alignment.CenterEnd
-                            ).clickable { navController.navigate(Screen.WeekWeatherScreen.route) },
+                            modifier = Modifier
+                                .align(
+                                    Alignment.CenterEnd
+                                )
+                                .clickable { navController.navigate(Screen.WeekWeatherScreen.route) },
                             color = Color.Black
                         )
                     }
 
                     Spacer(modifier = Modifier.height(15.dp))
 
-                    LazyRow(horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
+                    LazyRow(
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
 
                         items(state?.hourlyWeatherInfo ?: emptyList()) {
                             HourlyWeatherCardComponent(
@@ -130,9 +136,15 @@ fun HomeScreen(
 
             }
         } else if (viewModel.state.value.errorOccurred) {
-            SwipeRefresh(state = swipeRefreshState, onRefresh = { viewModel.refresh() }) {
+            SwipeRefresh(
+                state = swipeRefreshState,
+                onRefresh = { viewModel.refresh() },
+                refreshTriggerDistance = 200.dp
+            ) {
                 Column(
-                    modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState()),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {

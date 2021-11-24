@@ -65,11 +65,11 @@ fun TommorowWeatherCardComponent(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             
-            Text(text = "Tommorow", fontSize = 28.sp, color = MaterialTheme.colors.onBackground)
+            Text(text = "Tommorow", fontSize = 28.sp, color = Color.White)
 
-            Text(text = "$degree°C", fontSize = 28.sp, color = MaterialTheme.colors.onBackground)
+            Text(text = "$degree°C", fontSize = 28.sp, color = Color.White)
 
-            Text(text = description, fontSize = 18.sp, color = MaterialTheme.colors.onBackground, fontWeight = FontWeight.Light)
+            Text(text = description, fontSize = 18.sp, color = Color.White, fontWeight = FontWeight.Light)
 
 
 

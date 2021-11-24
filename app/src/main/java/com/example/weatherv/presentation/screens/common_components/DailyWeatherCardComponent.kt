@@ -1,6 +1,7 @@
 package com.example.weatherv.presentation.screens.common_components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -14,26 +15,27 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.weatherv.common.Constants
+import com.example.weatherv.domain.model.Weather
+import com.example.weatherv.domain.model.WeatherInfo
 
 @Composable
 fun DailyWeatherCardComponent(
-    day: String,
-    iconName: String,
-    degree: String,
-    description: String
+    weather: Weather,
+    onItemClick: (weather: Weather) -> Unit
 ) {
 
-    val imageUrl = Constants.ICON_URL + iconName + ".png"
+    val imageUrl = Constants.ICON_URL + weather.iconName + ".png"
 
     Box(
         modifier = Modifier
-            .padding(10.dp)
+            .padding(20.dp)
             .fillMaxWidth(0.95f)
             .height(100.dp)
+            .clickable { onItemClick(weather) }
     ) {
 
         Text(
-            text = day,
+            text = weather.date.take(3),
             fontWeight = FontWeight.Light,
             fontSize = 20.sp,
             modifier = Modifier.align(
@@ -58,7 +60,7 @@ fun DailyWeatherCardComponent(
             Spacer(modifier = Modifier.width(3.dp))
 
             Text(
-                text = description,
+                text = weather.description.replaceFirstChar { firstLetter -> firstLetter.uppercase() },
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Light,
                 modifier = Modifier.width(100.dp),
@@ -70,15 +72,13 @@ fun DailyWeatherCardComponent(
         }
 
         Text(
-            text = "$degree°C",
+            text = "${weather.degree}°C",
             fontWeight = FontWeight.Light,
             fontSize = 20.sp,
             modifier = Modifier.align(
                 Alignment.CenterEnd
             )
         )
-
-        Divider(color = Color.Black)
 
     }
 
