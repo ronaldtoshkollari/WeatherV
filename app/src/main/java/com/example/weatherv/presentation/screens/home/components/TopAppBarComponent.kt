@@ -1,6 +1,7 @@
 package com.example.weatherv.presentation.screens.home.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -72,6 +73,7 @@ fun TopAppBarComponent(
                 .size(32.dp)
                 .align(Alignment.CenterEnd)
                 .padding(end = 10.dp)
+                .clickable { onSearchClick() }
         )
 
     }

@@ -1,4 +1,4 @@
-package com.example.weatherv.domain.model
+package com.example.weatherv.domain.model.city
 
 data class City(
     val lon: Double,

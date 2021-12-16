@@ -1,7 +1,7 @@
 package com.example.weatherv.domain.mapper
 
 import com.example.weatherv.data.api.dto.coordinates.CityCoordinatesDto
-import com.example.weatherv.domain.model.City
+import com.example.weatherv.domain.model.city.City
 
 object CityMapper {
 

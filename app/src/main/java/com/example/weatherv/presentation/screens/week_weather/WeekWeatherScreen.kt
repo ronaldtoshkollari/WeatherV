@@ -3,7 +3,6 @@ package com.example.weatherv.presentation.screens.week_weather
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -22,7 +21,7 @@ import com.example.weatherv.presentation.screens.common_components.CustomTopBarC
 import com.example.weatherv.presentation.screens.common_components.DailyWeatherCardComponent
 import com.example.weatherv.presentation.screens.common_components.WeatherDetailCardComponent
 import com.example.weatherv.presentation.screens.week_weather.components.TommorowWeatherCardComponent
-import com.example.weatherv.presentation.viewmodel.MainViewModel
+import com.example.weatherv.presentation.viewmodel.main.MainViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
@@ -39,7 +38,7 @@ fun WeekWeatherScreen(
     Scaffold(
         topBar = {
 
-            CustomTopBarComponent(text = "Next 7 Days") {
+            CustomTopBarComponent(text = "Next 7 Days", isCityScreen = false) {
                 navController.popBackStack()
             }
 
@@ -92,13 +91,6 @@ fun WeekWeatherScreen(
                             ) { navController.navigate(route = Screen.DetailScreen.route.plus("/$index"))}
                             Divider(color = Color.Black)
                         }
-
-//                        items(state.weatherInfo.dailyWeatherInfo) {
-//                            DailyWeatherCardComponent(
-//                                it
-//                            ) { navController.navigate(Screen.DetailScreen.route) }
-//                            Divider(color = Color.Black)
-//                        }
                     }
 
                 }
@@ -117,7 +109,7 @@ fun WeekWeatherScreen(
             SwipeRefresh(
                 state = swipeRefreshState,
                 onRefresh = { viewModel.refresh() },
-                refreshTriggerDistance = 200.dp
+                refreshTriggerDistance = 100.dp
             ) {
                 Column(
                     modifier = Modifier

@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
 
                 SideEffect {
                     systemUiController.setStatusBarColor(
-                        color = Color(0xFF133C55)
+                        color = Color(0xFF009DE0)
                     )
                 }
 

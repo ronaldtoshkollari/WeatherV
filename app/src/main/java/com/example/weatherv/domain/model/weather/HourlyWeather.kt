@@ -1,4 +1,4 @@
-package com.example.weatherv.domain.model
+package com.example.weatherv.domain.model.weather
 
 data class HourlyWeather(
     val hour: String,

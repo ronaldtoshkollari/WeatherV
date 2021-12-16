@@ -2,10 +2,12 @@ package com.example.weatherv.di
 
 import com.example.weatherv.common.Constants
 import com.example.weatherv.data.api.WeatherApi
+import com.example.weatherv.data.repository.CityRepositoryImpl
 import com.example.weatherv.data.repository.WeatherRepositoryImpl
+import com.example.weatherv.domain.repository.CityRepository
 import com.example.weatherv.domain.repository.WeatherRepository
 import com.example.weatherv.domain.use_case.GetCurrentWeatherUseCase
-import com.example.weatherv.domain.use_case.SearchCityWeatherUseCase
+import com.example.weatherv.domain.use_case.SearchCityUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +19,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-
 
     @Provides
     @Singleton
@@ -35,6 +36,11 @@ class AppModule {
         return WeatherRepositoryImpl(weatherApi)
     }
 
+    @Provides
+    @Singleton
+    fun provideCityRepo(weatherApi: WeatherApi): CityRepository {
+        return CityRepositoryImpl(weatherApi)
+    }
 
     @Provides
     @Singleton
@@ -44,8 +50,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideSearchCityWeatherUseCase(weatherRepository: WeatherRepository): SearchCityWeatherUseCase {
-        return SearchCityWeatherUseCase(weatherRepository)
+    fun provideSearchCityWeatherUseCase(cityRepository: CityRepository): SearchCityUseCase {
+        return SearchCityUseCase(cityRepository)
     }
 
 }

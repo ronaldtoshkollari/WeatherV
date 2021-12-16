@@ -5,9 +5,9 @@ import com.example.weatherv.data.api.dto.weather_info.CurrentWeatherInfoDto
 import com.example.weatherv.data.api.dto.weather_info.DailyWeatherInfoDto
 import com.example.weatherv.data.api.dto.weather_info.HourlyWeatherInfoDto
 import com.example.weatherv.data.api.dto.weather_info.WeatherInfoDto
-import com.example.weatherv.domain.model.HourlyWeather
-import com.example.weatherv.domain.model.Weather
-import com.example.weatherv.domain.model.WeatherInfo
+import com.example.weatherv.domain.model.weather.HourlyWeather
+import com.example.weatherv.domain.model.weather.Weather
+import com.example.weatherv.domain.model.weather.WeatherInfo
 import com.example.weatherv.utils.DateConverter
 
 object WeatherMapper {
@@ -24,7 +24,11 @@ object WeatherMapper {
                 iconName = dailyWeatherInfoDto.weatherDetailsDto.first().icon,
                 windSpeed = dailyWeatherInfoDto.wind_speed.toInt().toString(),
                 humidity = dailyWeatherInfoDto.humidity.toString(),
-                clouds = dailyWeatherInfoDto.clouds.toString()
+                clouds = dailyWeatherInfoDto.clouds.toString(),
+                feelsLike = dailyWeatherInfoDto.feels_like.day.toInt().toString(),
+                pressure = dailyWeatherInfoDto.pressure.toString(),
+                windDegree = dailyWeatherInfoDto.wind_deg.toString(),
+                uvi = dailyWeatherInfoDto.uvi.toString()
             )
 
         } catch (e: Exception) {
@@ -35,7 +39,11 @@ object WeatherMapper {
                 iconName = "",
                 windSpeed = "",
                 humidity = "",
-                clouds = ""
+                clouds = "",
+                feelsLike = "",
+                pressure = "",
+                windDegree = "",
+                uvi = ""
             )
         }
     }
@@ -74,7 +82,11 @@ object WeatherMapper {
                 iconName = currentWeatherInfoDto.weatherDetailDtos.first().icon,
                 windSpeed = currentWeatherInfoDto.wind_speed.toInt().toString(),
                 humidity = currentWeatherInfoDto.humidity.toString(),
-                clouds = currentWeatherInfoDto.clouds.toString()
+                clouds = currentWeatherInfoDto.clouds.toString(),
+                feelsLike = currentWeatherInfoDto.feels_like.toInt().toString(),
+                pressure = currentWeatherInfoDto.pressure.toString(),
+                windDegree = currentWeatherInfoDto.wind_deg.toString(),
+                uvi = currentWeatherInfoDto.uvi.toString()
             )
 
         } catch (e: Exception) {
@@ -85,7 +97,11 @@ object WeatherMapper {
                 iconName = "",
                 windSpeed = "",
                 humidity = "",
-                clouds = ""
+                clouds = "",
+                feelsLike = "",
+                pressure = "",
+                windDegree = "",
+                uvi = ""
             )
         }
     }

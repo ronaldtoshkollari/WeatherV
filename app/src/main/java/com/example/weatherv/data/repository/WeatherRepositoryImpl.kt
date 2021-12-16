@@ -4,10 +4,10 @@ import android.util.Log
 import com.example.weatherv.common.Constants
 import com.example.weatherv.data.api.WeatherApi
 import com.example.weatherv.domain.mapper.WeatherMapper
-import com.example.weatherv.domain.model.City
-import com.example.weatherv.domain.model.HourlyWeather
-import com.example.weatherv.domain.model.Weather
-import com.example.weatherv.domain.model.WeatherInfo
+import com.example.weatherv.domain.model.city.City
+import com.example.weatherv.domain.model.weather.HourlyWeather
+import com.example.weatherv.domain.model.weather.Weather
+import com.example.weatherv.domain.model.weather.WeatherInfo
 import com.example.weatherv.domain.repository.WeatherRepository
 import javax.inject.Inject
 
@@ -16,7 +16,10 @@ class WeatherRepositoryImpl @Inject constructor(
 ) : WeatherRepository {
 
 
-    override suspend fun getWeatherInfo(): WeatherInfo {
+    override suspend fun getWeatherInfo(
+        latitude: Double,
+        longitude: Double
+    ): WeatherInfo {
 
         return try {
             val response = weatherApi.getWeatherInfo()
@@ -26,7 +29,19 @@ class WeatherRepositoryImpl @Inject constructor(
             Log.d("WeatherRepositoryImpl", "getWeatherInfo: ${e.message}")
 
             val city = City(lon = Constants.LON, lat = Constants.LAT, name = Constants.DEFAULT_CITY)
-            val currentWeather = Weather("", "", "", "", "", "", "")
+            val currentWeather = Weather(
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                feelsLike = "",
+                pressure = "",
+                windDegree = "",
+                uvi = ""
+            )
             val hourlyWeather = HourlyWeather("", "", "")
 
             WeatherInfo(city, currentWeather, listOf(currentWeather), listOf(hourlyWeather))
@@ -50,7 +65,7 @@ class WeatherRepositoryImpl @Inject constructor(
 
             val cityDefaultItem =
                 City(lon = Constants.LON, lat = Constants.LAT, name = Constants.DEFAULT_CITY)
-            val currentWeather = Weather("", "", "", "", "", "", "")
+            val currentWeather = Weather("", "", "", "", "", "", "", "", "", "", "")
             val hourlyWeather = HourlyWeather("", "", "")
 
             WeatherInfo(

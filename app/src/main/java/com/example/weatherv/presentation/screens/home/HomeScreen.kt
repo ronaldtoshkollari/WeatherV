@@ -27,7 +27,7 @@ import com.example.weatherv.presentation.screens.home.components.WeatherCardComp
 import com.example.weatherv.presentation.screens.common_components.WeatherDetailCardComponent
 import com.example.weatherv.R
 import com.example.weatherv.presentation.navigation.Screen
-import com.example.weatherv.presentation.viewmodel.MainViewModel
+import com.example.weatherv.presentation.viewmodel.main.MainViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
@@ -37,6 +37,7 @@ fun HomeScreen(
     navController: NavController
 ) {
 
+
     val state = viewModel.state.value.weatherInfo
     val swipeRefreshState = rememberSwipeRefreshState(viewModel.state.value.isLoading)
 
@@ -45,7 +46,7 @@ fun HomeScreen(
             TopAppBarComponent(
                 city = state?.city?.name ?: "Athens",
                 onFavouritesClick = { /*TODO*/ },
-                onSearchClick = { /*TODO*/ },
+                onSearchClick = { navController.navigate(Screen.SearchScreen.route) },
                 navController = rememberNavController()
             )
         }
@@ -64,7 +65,7 @@ fun HomeScreen(
             SwipeRefresh(
                 state = swipeRefreshState,
                 onRefresh = { viewModel.refresh() },
-                refreshTriggerDistance = 200.dp
+                refreshTriggerDistance = 100.dp
             ) {
                 Column(
                     modifier = Modifier

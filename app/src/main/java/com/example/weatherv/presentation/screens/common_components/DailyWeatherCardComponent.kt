@@ -3,20 +3,17 @@ package com.example.weatherv.presentation.screens.common_components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.weatherv.common.Constants
-import com.example.weatherv.domain.model.Weather
-import com.example.weatherv.domain.model.WeatherInfo
+import com.example.weatherv.domain.model.weather.Weather
 
 @Composable
 fun DailyWeatherCardComponent(

@@ -9,6 +9,8 @@ import retrofit2.http.Query
 interface WeatherApi {
 
 
+
+
     @GET("onecall")
     suspend fun getWeatherInfo(
         @Query("lat") lat: Double = Constants.LAT,

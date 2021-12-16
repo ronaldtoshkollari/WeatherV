@@ -1,6 +1,6 @@
 package com.example.weatherv.domain.repository
 
-import com.example.weatherv.domain.model.City
+import com.example.weatherv.domain.model.city.City
 
 interface CityRepository {
 

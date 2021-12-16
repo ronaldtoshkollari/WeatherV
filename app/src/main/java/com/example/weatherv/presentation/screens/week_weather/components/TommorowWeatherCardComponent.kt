@@ -29,7 +29,7 @@ fun TommorowWeatherCardComponent(
     val brush = Brush.verticalGradient(
         colors = listOf(
             Color.White,
-            Color(0xFF133C55)
+            Color(0xFF009DE0)
         )
     )
 

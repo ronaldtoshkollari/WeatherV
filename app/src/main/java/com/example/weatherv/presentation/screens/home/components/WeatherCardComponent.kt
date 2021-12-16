@@ -30,7 +30,7 @@ fun WeatherCardComponent(
 
     val brush = Brush.verticalGradient(
         colors = listOf(
-            Color(0xFF133C55),
+            Color(0xFF009DE0),
             Color.White
         )
     )

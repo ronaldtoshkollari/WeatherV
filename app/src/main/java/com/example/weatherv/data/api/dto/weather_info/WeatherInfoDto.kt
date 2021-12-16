@@ -12,6 +12,7 @@ data class WeatherInfoDto(
 
     @SerializedName("hourly")
     val hourlyWeatherInfoDto: List<HourlyWeatherInfoDto>,
+
     val lat: Double,
     val lon: Double
 )

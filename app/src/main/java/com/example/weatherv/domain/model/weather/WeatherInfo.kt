@@ -1,4 +1,6 @@
-package com.example.weatherv.domain.model
+package com.example.weatherv.domain.model.weather
+
+import com.example.weatherv.domain.model.city.City
 
 data class WeatherInfo(
     val city: City,

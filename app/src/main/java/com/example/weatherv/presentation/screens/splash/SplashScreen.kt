@@ -1,7 +1,6 @@
 package com.example.weatherv.presentation.screens.splash
 
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -17,13 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.airbnb.lottie.compose.*
 import com.example.weatherv.R
 import com.example.weatherv.presentation.navigation.Screen
-import com.example.weatherv.presentation.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
 
 @Composable
